@@ -16,6 +16,8 @@ const Contacts = ({ name }) => {
     contact.name.toLowerCase().includes(normolizeFilter)
   );
 
+  
+
   return (
     <ContactsItem>
       <p>{name}</p>

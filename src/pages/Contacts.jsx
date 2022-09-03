@@ -10,7 +10,7 @@ const ContactsPage = () => {
   // const { data, error, isLoading } = useGetContactsQuery();
   const data = useSelector(state => state.contacts);
   const dispatch = useDispatch();
-  // dispatch(contactsOperation.fetchContacts());
+  // // dispatch(contactsOperation.fetchContacts());
 
   useEffect(() => {
     dispatch(contactsOperation.fetchContacts());

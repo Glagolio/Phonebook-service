@@ -10,7 +10,7 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: {
+  reducers: {
     [authOperation.register.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
@@ -28,3 +28,5 @@ export const authSlice = createSlice({
     },
   },
 });
+
+console.log(authSlice.actions);

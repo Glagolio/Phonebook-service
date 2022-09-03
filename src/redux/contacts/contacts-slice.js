@@ -9,7 +9,7 @@ export const contactsSlice = createSlice({
       return action.payload;
     },
     [contactsOperation.addContact.fulfilled](state, action) {
-      return [...state, ...action.payload];
+      //   return [...state, ...action.payload];
     },
   },
 });
