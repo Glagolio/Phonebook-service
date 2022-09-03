@@ -17,7 +17,7 @@ const Register = () => {
       case 'name':
         setName(e.currentTarget.value);
         break;
-      case 'mail':
+      case 'email':
         setEmail(e.currentTarget.value);
         break;
       case 'password':
