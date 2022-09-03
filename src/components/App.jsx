@@ -1,21 +1,20 @@
-import Phonebook from './Phonebook/Phonebook';
-import Main from './Main/Main';
-import Contacts from './Phonebook/Contacts/Contacts';
-import { useGetContactsQuery } from 'redux/contactsApi';
+import SharedLayout from './SharedLayout/SharedLayout';
+import Home from '../pages/Home';
+import ContactsPage from '../pages/Contacts';
+import Register from './Register/Register';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 const App = () => {
-  const { data, error, isLoading } = useGetContactsQuery();
-
   return (
-    <Main title="Phonebook">
-      <Phonebook />
-      {!isLoading && data.length > 0 ? (
-        <Contacts name="Contacts" />
-      ) : (
-        <p>Phonebook empty</p>
-      )}
-      {error && <p>Sorry.. somethiing wrong. Try again.</p>}
-    </Main>
+    <BrowserRouter basename="/goit-react-hw-08-phonebook/">
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
