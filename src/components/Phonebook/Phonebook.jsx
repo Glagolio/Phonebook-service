@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import { useGetContactsQuery, useAddContactMutation } from 'redux/contactsApi';
 import Notiflix from 'notiflix';
+import { useSelector, useDispatch } from 'react-redux';
 
 import InputName from './Input/InputName/InputName';
 import LabelPhoneBook from './Label/Label';
 import ButtonSubmit from './Button/ButtonSubmit';
 import InputNumber from './Input/InputNumber/inputNumber';
 import FormPhonebook from './Form/Form';
+import contactsOperation from 'redux/contacts/contacts-operation';
 
 const Phonebook = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  // const dispatch = useDispatch();
-  const { data: contacts } = useGetContactsQuery();
-  const [addContact] = useAddContactMutation();
+  const dispatch = useDispatch();
+  // const { data: contacts } = useGetContactsQuery();
+  // const [addContact] = useAddContactMutation();
+  const contacts = useSelector(state => state.contacs);
 
   const handleChange = e => {
     switch (e.currentTarget.name) {
@@ -40,7 +43,7 @@ const Phonebook = () => {
     }
 
     try {
-      await addContact(data);
+      await dispatch(contactsOperation.addContact(data));
       Notiflix.Notify.success('Contact added');
     } catch (error) {
       Notiflix.Notify.failure('Something wrong... try again');
