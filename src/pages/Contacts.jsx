@@ -12,7 +12,9 @@ const ContactsPage = () => {
   const dispatch = useDispatch();
   // dispatch(contactsOperation.fetchContacts());
 
-  useEffect(() => dispatch(contactsOperation.fetchContacts()), [dispatch]);
+  useEffect(() => {
+    dispatch(contactsOperation.fetchContacts());
+  }, [dispatch]);
 
   return (
     <Main title="Phonebook">
