@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { useSelector } from 'react-redux';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -38,6 +39,21 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   } catch (error) {}
 });
 
-const authOperation = { register, logIn, logOut };
+const fetchCurrentUser = createAsyncThunk('auth/refresh', async () => {
+  const persistToken = useSelector(state => state.auth.token);
+
+  if (persistToken === null) {
+    console.log('Немає токена користувача');
+    return persistToken.rejectedWithValue('');
+  }
+  token.set(persistToken);
+  try {
+    const { data } = await axios.get('/users/current');
+    console.log(data);
+    return data;
+  } catch (error) {}
+});
+
+const authOperation = { register, logIn, logOut, fetchCurrentUser };
 
 export default authOperation;
