@@ -7,6 +7,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import authOperation from '../redux/auth/auth-operation';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="contacts" element={<ContactsPage />} />
+
           <Route path="register" element={<Register />} />
           <Route path="login" element={<LogIn />} />
         </Route>
