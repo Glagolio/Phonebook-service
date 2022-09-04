@@ -54,3 +54,11 @@ export const AutorizationLink = styled(NavLink)`
     color: orangered;
   }
 `;
+
+export const LoginInfo = styled.div`
+  display: flex;
+  align-items: center;
+  & button {
+    cursor: pointer;
+  }
+`;

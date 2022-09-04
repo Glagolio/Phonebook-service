@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import defaultAvatar from '../../images/avatar.png';
 import { useDispatch } from 'react-redux';
 import authOperation from 'redux/auth/auth-operation';
-
+import { HiOutlineLogout } from 'react-icons/hi';
 const UserMenu = () => {
   const name = useSelector(state => state.auth.user.name);
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const UserMenu = () => {
       {name}
       <img src={defaultAvatar} width="40" alt="user avatar" />
       <button type="button" onClick={() => dispatch(authOperation.logOut())}>
-        Log out
+        <HiOutlineLogout />
       </button>
     </>
   );

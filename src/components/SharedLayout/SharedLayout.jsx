@@ -3,6 +3,7 @@ import {
   Header,
   NavigationLink,
   AutorizationLink,
+  LoginInfo,
 } from './SharedJayout.styled';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -17,7 +18,7 @@ const SharedLayout = () => {
           <NavigationLink to="/">Home</NavigationLink>
           <NavigationLink to="/contacts">Contacts</NavigationLink>
         </nav>
-        <div>
+        <LoginInfo>
           {isLoggedIn ? (
             <UserMenu />
           ) : (
@@ -26,7 +27,7 @@ const SharedLayout = () => {
               <AutorizationLink to="/login">Log In</AutorizationLink>
             </>
           )}
-        </div>
+        </LoginInfo>
       </Header>
       <Outlet />
     </Container>
