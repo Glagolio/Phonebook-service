@@ -1,12 +1,12 @@
 import React from 'react';
-import MainPage from './Main.styled';
+import { MainPage, Title } from './Main.styled';
 import PropTypes from 'prop-types';
 
 const Main = ({ title, children }) => (
-  <MainPage>
-    <h1>{title}</h1>
-    {children}
-  </MainPage>
+  <>
+    <Title>{title}</Title>
+    <MainPage>{children}</MainPage>
+  </>
 );
 
 export default Main;

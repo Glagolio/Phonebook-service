@@ -16,8 +16,6 @@ const Contacts = ({ name }) => {
     contact.name.toLowerCase().includes(normolizeFilter)
   );
 
-  
-
   return (
     <ContactsItem>
       <p>{name}</p>
@@ -28,7 +26,7 @@ const Contacts = ({ name }) => {
         {visibleContacts.map(data => (
           <li key={data.id}>
             <span>
-              {data.name} {data.phone}
+              {data.name} {data.number}
             </span>
             <ButtonDelete id={data.id} />
           </li>

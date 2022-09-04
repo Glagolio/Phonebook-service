@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useGetContactsQuery, useAddContactMutation } from 'redux/contactsApi';
 import Notiflix from 'notiflix';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,9 +13,7 @@ const Phonebook = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
-  // const { data: contacts } = useGetContactsQuery();
-  // const [addContact] = useAddContactMutation();
-  // const contacts = useSelector(state => state.contacs);
+  const contacts = useSelector(state => state.contacts.items);
 
   const handleChange = e => {
     switch (e.currentTarget.name) {
@@ -37,10 +34,10 @@ const Phonebook = () => {
   };
 
   const formSubmitHandle = data => {
-    // if (contacts.filter(contact => contact.name === data.name).length > 0) {
-    //   Notiflix.Notify.warning(`${data.name} is already in contacts`);
-    //   return;
-    // }
+    if (contacts.filter(contact => contact.name === data.name).length > 0) {
+      Notiflix.Notify.warning(`${data.name} is already in contacts`);
+      return;
+    }
     dispatch(contactsOperation.addContact(data));
     // dispatch(contactsOperation.fetchContacts());
 

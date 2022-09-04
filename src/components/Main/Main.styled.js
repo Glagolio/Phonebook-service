@@ -1,13 +1,11 @@
 import styled from '@emotion/styled';
 
-const MainPage = styled.div`
+export const MainPage = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
-  width: 500px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 40px;
   color: #010101;
 
@@ -17,4 +15,6 @@ const MainPage = styled.div`
   }
 `;
 
-export default MainPage;
+export const Title = styled.h1`
+  text-align: center;
+`;
