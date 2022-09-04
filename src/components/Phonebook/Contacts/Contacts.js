@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const Contacts = ({ name }) => {
   // const { data } = useGetContactsQuery();
-  const data = useSelector(state => state.contacts);
+  const data = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.filter);
   const normolizeFilter = filter.toLowerCase();
   const visibleContacts = data.filter(contact =>

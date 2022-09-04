@@ -18,6 +18,13 @@ const addContact = createAsyncThunk(
   }
 );
 
+const deleteContact = createAsyncThunk('contacts/deleteContact', async id => {
+  try {
+    await axios.delete(`contacts/${id}`);
+    console.log('success');
+  } catch {}
+});
+
 // const fetchContacts = () => async () => {
 //   try {
 //     const { data } = await axios.get('/contacts');
@@ -25,6 +32,6 @@ const addContact = createAsyncThunk(
 //   } catch (error) {}
 // };
 
-const contactsOperation = { fetchContacts, addContact };
+const contactsOperation = { fetchContacts, addContact, deleteContact };
 
 export default contactsOperation;

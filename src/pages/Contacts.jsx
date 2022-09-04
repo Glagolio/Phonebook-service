@@ -8,7 +8,7 @@ import contactsOperation from 'redux/contacts/contacts-operation';
 
 const ContactsPage = () => {
   // const { data, error, isLoading } = useGetContactsQuery();
-  const data = useSelector(state => state.contacts);
+  const data = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
   // // dispatch(contactsOperation.fetchContacts());
 

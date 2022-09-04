@@ -3,13 +3,30 @@ import contactsOperation from './contacts-operation';
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [],
+  initialState: {
+    items: [],
+    isLoad: false,
+  },
   extraReducers: {
+    [contactsOperation.fetchContacts.pending](state) {
+      state.isLoad = true;
+    },
     [contactsOperation.fetchContacts.fulfilled](state, action) {
-      return action.payload;
+      state.items = action.payload;
+      state.isLoad = false;
+    },
+    [contactsOperation.addContact.pending](state) {
+      state.isLoad = true;
     },
     [contactsOperation.addContact.fulfilled](state, action) {
-      //   return [...state, ...action.payload];
+      state.items = [...state.items, action.payload];
+      state.isLoad = false;
+    },
+    [contactsOperation.deleteContact.pending](state) {
+      state.isLoad = true;
+    },
+    [contactsOperation.deleteContact.fulfilled](state) {
+      state.isLoad = false;
     },
   },
 });

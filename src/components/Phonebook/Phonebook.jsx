@@ -42,7 +42,7 @@ const Phonebook = () => {
     //   return;
     // }
     dispatch(contactsOperation.addContact(data));
-    dispatch(contactsOperation.fetchContacts());
+    // dispatch(contactsOperation.fetchContacts());
 
     //   try {
     //     await dispatch(contactsOperation.addContact(data));
