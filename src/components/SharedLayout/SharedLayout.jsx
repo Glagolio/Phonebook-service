@@ -25,7 +25,7 @@ const SharedLayout = () => {
             <UserMenu />
           ) : (
             <>
-              <AutorizationLink to="/Register">Sign up</AutorizationLink>
+              <AutorizationLink to="/register">Sign up</AutorizationLink>
               <AutorizationLink to="/login">Log In</AutorizationLink>
             </>
           )}

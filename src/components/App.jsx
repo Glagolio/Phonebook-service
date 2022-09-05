@@ -36,18 +36,18 @@ const App = () => {
           <Route
             path="register"
             element={
-              // <PrivateRoute restricted>
-              <Register />
-              // </PrivateRoute>
+              <PublicRoute restricted>
+                <Register />
+              </PublicRoute>
             }
           />
           <Route
             path="login"
             restricted
             element={
-              // <PublicRoute restricted>
-              <LogIn />
-              // </PublicRoute>
+              <PublicRoute restricted>
+                <LogIn />
+              </PublicRoute>
             }
           />
         </Route>
