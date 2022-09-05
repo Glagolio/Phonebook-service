@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { useSelector } from 'react-redux';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
