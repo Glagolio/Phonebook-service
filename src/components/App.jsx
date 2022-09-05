@@ -13,11 +13,11 @@ import PublicRoute from './PublicRoute/PublicRoute';
 const App = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(authOperation.fetchCurrentUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(authOperation.fetchCurrentUser());
+  }, [dispatch]);
 
-  dispatch(authOperation.fetchCurrentUser());
+  // dispatch(authOperation.fetchCurrentUser());
 
   return (
     <BrowserRouter basename="/goit-react-hw-08-phonebook/">
