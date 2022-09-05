@@ -8,6 +8,7 @@ import authOperation from '../redux/auth/auth-operation';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,15 +17,39 @@ const App = () => {
     dispatch(authOperation.fetchCurrentUser());
   }, [dispatch]);
 
+  // dispatch(authOperation.fetchCurrentUser());
+
   return (
     <BrowserRouter basename="/goit-react-hw-08-phonebook/">
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="contacts" element={<ContactsPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
 
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<LogIn />} />
+          <Route
+            path="register"
+            element={
+              <PrivateRoute restricted>
+                <Register />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="login"
+            restricted
+            element={
+              <PublicRoute restricted>
+                <LogIn />
+              </PublicRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
