@@ -12,7 +12,9 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 const App = () => {
   const dispatch = useDispatch();
 
-  dispatch(authOperation.fetchCurrentUser());
+  useEffect(() => {
+    dispatch(authOperation.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     <BrowserRouter basename="/goit-react-hw-08-phonebook/">

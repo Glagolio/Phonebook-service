@@ -39,20 +39,24 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   } catch (error) {}
 });
 
-const fetchCurrentUser = createAsyncThunk('auth/refresh', async () => {
-  const persistToken = useSelector(state => state.auth.token);
+const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState();
+    const persistToken = useSelector(state => state.auth.token);
 
-  if (persistToken === null) {
-    console.log('Немає токена користувача');
-    return persistToken.rejectedWithValue('');
+    if (persistToken === null) {
+      console.log('Немає токена користувача');
+      return rejectWithValue();
+    }
+    token.set(persistToken);
+    try {
+      const { data } = await axios.get('/users/current');
+      console.log(data);
+      return data;
+    } catch (error) {}
   }
-  token.set(persistToken);
-  try {
-    const { data } = await axios.get('/users/current');
-    console.log(data);
-    return data;
-  } catch (error) {}
-});
+);
 
 const authOperation = { register, logIn, logOut, fetchCurrentUser };
 

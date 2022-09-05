@@ -7,7 +7,7 @@ const Input = styled.input`
 
   font-size: 24px;
 
-  & ~ p {
+  & p {
     font-size: 14px;
   }
 `;
