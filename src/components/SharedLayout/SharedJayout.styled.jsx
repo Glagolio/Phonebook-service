@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -14,6 +14,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   & > nav {
     display: flex;
   }
@@ -26,9 +27,21 @@ export const NavigationLink = styled(NavLink)`
   color: black;
   font-weight: 500;
 
+  transition: background-color 250ms linear, color 250ms linear;
+
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: orangered;
+    color: white;
+  }
+
   &.active {
     color: white;
-    background-color: orangered;
+    background-color: #dd3b00;
   }
 `;
 
@@ -42,7 +55,7 @@ export const AutorizationLink = styled(NavLink)`
   transition: color 250ms linear;
 
   &.active {
-    color: orangered;
+    color: #dd3b00;
   }
 
   &:not(:last-child) {

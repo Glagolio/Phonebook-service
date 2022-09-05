@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const fetchContacts = createAsyncThunk('contacts/fetchContacts', async () => {
   try {
@@ -13,25 +14,25 @@ const addContact = createAsyncThunk(
   async credentials => {
     try {
       const { data } = await axios.post('/contacts', credentials);
+      Notify.success('Contact added');
+
       return data;
-    } catch (error) {}
+    } catch (error) {
+      Notify.failure('Something wrong.. Try again.');
+    }
   }
 );
 
 const deleteContact = createAsyncThunk('contacts/deleteContact', async id => {
   try {
     await axios.delete(`contacts/${id}`);
+    Notify.success('Contact deleted');
 
     return id;
-  } catch {}
+  } catch (error) {
+    Notify.failure('Something wrong.. Try again.');
+  }
 });
-
-// const fetchContacts = () => async () => {
-//   try {
-//     const { data } = await axios.get('/contacts');
-//     return data;
-//   } catch (error) {}
-// };
 
 const contactsOperation = { fetchContacts, addContact, deleteContact };
 

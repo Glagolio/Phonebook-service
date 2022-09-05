@@ -43,7 +43,7 @@ const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
-    const persistToken = useSelector(state => state.auth.token);
+    const persistToken = state.auth.token;
 
     if (persistToken === null) {
       console.log('Немає токена користувача');
@@ -52,7 +52,6 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistToken);
     try {
       const { data } = await axios.get('/users/current');
-      console.log(data);
       return data;
     } catch (error) {}
   }

@@ -4,16 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import InputName from './Input/InputName/InputName';
 import LabelPhoneBook from './Label/Label';
-import ButtonSubmit from './Button/ButtonSubmit';
 import InputNumber from './Input/InputNumber/inputNumber';
 import FormPhonebook from './Form/Form';
 import contactsOperation from 'redux/contacts/contacts-operation';
+import Button from '@mui/material/Button';
 
 const Phonebook = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
+  const isLoad = useSelector(state => state.contacts.isLoad);
 
   const handleChange = e => {
     switch (e.currentTarget.name) {
@@ -39,15 +40,6 @@ const Phonebook = () => {
       return;
     }
     dispatch(contactsOperation.addContact(data));
-    // dispatch(contactsOperation.fetchContacts());
-
-    //   try {
-    //     await dispatch(contactsOperation.addContact(data));
-    //     Notiflix.Notify.success('Contact added');
-    //   } catch (error) {
-    //     Notiflix.Notify.failure('Something wrong... try again');
-    //   }
-    // };
   };
 
   const clickOnBtnSubmit = async e => {
@@ -64,7 +56,15 @@ const Phonebook = () => {
       <LabelPhoneBook title="Number">
         <InputNumber value={phone} onChange={handleChange} />
       </LabelPhoneBook>
-      <ButtonSubmit text="Add contact" />
+      <Button
+        variant="contained"
+        size="medium"
+        type="submit"
+        className="button-signup"
+        disabled={isLoad}
+      >
+        Add
+      </Button>
     </FormPhonebook>
   );
 };

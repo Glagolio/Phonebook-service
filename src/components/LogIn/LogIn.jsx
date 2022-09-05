@@ -1,9 +1,15 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import authOperation from 'redux/auth/auth-operation';
+import FormStyled from 'components/Register/Register.styled';
+import Button from '@mui/material/Button';
+import { TailSpin } from 'react-loader-spinner';
+import InputMail from '../Phonebook/Input/InputMail/inputMail';
+import InputPassword from 'components/Phonebook/Input/InputPassword/InputPassword';
 
 const LogIn = () => {
   const dispatch = useDispatch();
+  const isLoad = useSelector(state => state.auth.isLoad);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -32,10 +38,10 @@ const LogIn = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormStyled onSubmit={handleSubmit}>
       <label>
-        Email
-        <input
+        <p>Email</p>
+        <InputMail
           name="email"
           type="email"
           value={email}
@@ -43,16 +49,32 @@ const LogIn = () => {
         />
       </label>
       <label>
-        Password
-        <input
-          name="password"
-          type="text"
-          value={password}
-          onChange={handleChange}
-        />
+        <p>Password</p>
+        <InputPassword value={password} onChange={handleChange} />
       </label>
-      <button type="submit">Log In</button>
-    </form>
+      <Button
+        variant="contained"
+        size="medium"
+        type="submit"
+        className="button-signup"
+        disabled={isLoad}
+      >
+        {isLoad ? (
+          <TailSpin
+            height="20"
+            width="20"
+            color="#ff4500"
+            ariaLabel="tail-spin-loading"
+            radius="1"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+        ) : (
+          'Log In'
+        )}
+      </Button>
+    </FormStyled>
   );
 };
 

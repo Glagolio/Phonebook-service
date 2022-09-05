@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 
 const Main = ({ title, children }) => (
   <>
-    <Title>{title}</Title>
-    <MainPage>{children}</MainPage>
+    <MainPage>
+      <Title>{title}</Title>
+      {children}
+    </MainPage>
   </>
 );
 

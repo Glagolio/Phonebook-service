@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { filterSlice } from './contactsSlice';
-import { contactsApi } from './contactsApi';
+import { filterSlice } from './auth/filter/filterSlice';
 import { authSlice } from './auth/auth-slice';
 import { contactsSlice } from './contacts/contacts-slice';
 import {
@@ -35,8 +34,6 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  // middleware: getDefaultMiddleware =>
-  //   getDefaultMiddleware().concat(contactsApi.middleware),
 });
 
 export const persistor = persistStore(store);

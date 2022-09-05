@@ -3,7 +3,7 @@ import {
   DevelopedBy,
   LinkIconsList,
 } from '../components/Home/Home.styled';
-import { BsGithub, BsLinkedin, AiOutlineMail } from 'react-icons/bs';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 const Home = () => {
   return (

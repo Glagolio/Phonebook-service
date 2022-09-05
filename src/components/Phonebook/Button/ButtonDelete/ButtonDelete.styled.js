@@ -1,16 +1,19 @@
 import styled from '@emotion/styled';
 
 const ButtonDeleteStyle = styled.button`
-  margin-left: 10px;
-  background-color: black;
-  color: white;
-  border-radius: 5%;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  transition: color 250ms linear, background-color 250ms linear;
+  transition: transform 250ms linear, color 250ms linear;
+  transform: translateY(0);
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
 
   &:hover {
-    background-color: white;
-    color: black;
+    color: orangered;
+    transform: translateY(-5px);
   }
 
   &:disabled {
