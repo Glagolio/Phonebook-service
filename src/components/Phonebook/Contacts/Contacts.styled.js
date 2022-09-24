@@ -52,7 +52,7 @@ export const ContactsButtons = styled.ul`
   margin-top: 0;
   list-style: none;
   display: flex;
-  align-items: center;
+  align-items: baseline;
 
   & li {
     &:not(:last-child) {
