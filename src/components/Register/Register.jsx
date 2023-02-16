@@ -1,10 +1,10 @@
 import FormStyled from './Register.styled';
 import InputName from '../Phonebook/Input/InputName/InputName';
 import InputMail from '../Phonebook/Input/InputMail/inputMail';
-import InputPassword from 'components/Phonebook/Input/InputPassword/InputPassword';
+import InputPassword from '../Phonebook/Input/InputPassword/InputPassword';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import authOperation from 'redux/auth/auth-operation';
+import authOperation from '../../redux/auth/auth-operation';
 import Button from '@mui/material/Button';
 import { TailSpin } from 'react-loader-spinner';
 

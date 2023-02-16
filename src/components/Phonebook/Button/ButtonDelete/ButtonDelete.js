@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonDeleteStyle from './ButtonDelete.styled';
 import PropTypes from 'prop-types';
-import contactsOperation from 'redux/contacts/contacts-operation';
+import contactsOperation from '../../../../redux/contacts/contacts-operation';
 import { useDispatch } from 'react-redux';
 import { IoTrashBinSharp } from 'react-icons/io5';
 import { useSelector } from 'react-redux';

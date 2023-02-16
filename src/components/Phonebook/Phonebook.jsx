@@ -6,7 +6,7 @@ import InputName from './Input/InputName/InputName';
 import LabelPhoneBook from './Label/Label';
 import InputNumber from './Input/InputNumber/inputNumber';
 import FormPhonebook from './Form/Form';
-import contactsOperation from 'redux/contacts/contacts-operation';
+import contactsOperation from '../../redux/contacts/contacts-operation';
 import Button from '@mui/material/Button';
 
 const Phonebook = () => {

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import defaultAvatar from '../../images/avatar.png';
 import { useDispatch } from 'react-redux';
-import authOperation from 'redux/auth/auth-operation';
+import authOperation from '../../redux/auth/auth-operation';
 import { HiOutlineLogout } from 'react-icons/hi';
 import { UserMenuStyled } from './UserMenu.styled';
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import authOperation from 'redux/auth/auth-operation';
-import FormStyled from 'components/Register/Register.styled';
+import authOperation from '../../redux/auth/auth-operation';
+import FormStyled from '../Register/Register.styled';
 import Button from '@mui/material/Button';
 import { TailSpin } from 'react-loader-spinner';
 import InputMail from '../Phonebook/Input/InputMail/inputMail';
-import InputPassword from 'components/Phonebook/Input/InputPassword/InputPassword';
+import InputPassword from '../Phonebook/Input/InputPassword/InputPassword';
 
 const LogIn = () => {
   const dispatch = useDispatch();
