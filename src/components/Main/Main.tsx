@@ -1,13 +1,12 @@
 import React from 'react';
 import { MainPage, Title } from './Main.styled';
-// import PropTypes from 'prop-types';
 
 type IProps = {
   title: string;
   children?: React.ReactChild;
 };
 
-const Main: React.FC = ({ title, children }: IProps): JSX.Element => (
+const Main: React.FC<IProps> = ({ title, children }): JSX.Element => (
   <MainPage>
     <Title>{title}</Title>
     {children}
@@ -15,7 +14,3 @@ const Main: React.FC = ({ title, children }: IProps): JSX.Element => (
 );
 
 export default Main;
-
-// Main.propTypes = {
-//   title: PropTypes.string.isRequired,
-// };
